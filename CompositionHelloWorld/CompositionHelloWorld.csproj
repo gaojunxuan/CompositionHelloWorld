@@ -104,6 +104,12 @@
     <Compile Include="DropShadowPage.xaml.cs">
       <DependentUpon>DropShadowPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InteractionTrackerPage.xaml.cs">
+      <DependentUpon>InteractionTrackerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InteractionTrackerPage2.xaml.cs">
+      <DependentUpon>InteractionTrackerPage2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LightPage.xaml.cs">
       <DependentUpon>LightPage.xaml</DependentUpon>
     </Compile>
@@ -124,6 +130,7 @@
   <ItemGroup>
     <Content Include="Assets\Screenshot %28115%29.png" />
     <Content Include="Assets\Screenshot %2874%29.png" />
+    <Content Include="Assets\interactionTracker1.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -147,6 +154,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DropShadowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InteractionTrackerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InteractionTrackerPage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

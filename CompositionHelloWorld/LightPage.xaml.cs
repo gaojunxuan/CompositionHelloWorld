@@ -18,6 +18,8 @@ using Windows.Graphics.Effects;
 using Microsoft.Graphics.Canvas.Effects;
 using Windows.UI.Composition.Effects;
 using System.Numerics;
+using Windows.UI;
+using Microsoft.Graphics.Canvas;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,6 +33,8 @@ namespace CompositionHelloWorld
         Compositor _compositor;
         CompositionEffectFactory _factory;
         PointLight _pointLight;
+        DistantLight _distantLight;
+        SpotLight _spotLight;
         public LightPage()
         {
             this.InitializeComponent();
@@ -39,15 +43,20 @@ namespace CompositionHelloWorld
         {
             _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
             _pointLight = _compositor.CreatePointLight();
-            //IGraphicsEffect lightEffect = new SceneLightingEffect()
-            //{
-            //    AmbientAmount = 0,
-            //    DiffuseAmount = .75f,
-            //    SpecularAmount = 0
-                
-            //};
-            //_factory = _compositor.CreateEffectFactory(lightEffect);
+            _distantLight = _compositor.CreateDistantLight();
+            _spotLight = _compositor.CreateSpotLight();
+            _spotLight.InnerConeAngle = (float)(Math.PI / 4);
+            _spotLight.OuterConeAngle = (float)(Math.PI / 3.5);
+            //var amblighting = _compositor.CreateAmbientLight();  
+
             var lightRoot = ElementCompositionPreview.GetElementVisual(sample_img);
+
+            //_distantLight.CoordinateSpace = lightRoot;
+            //_distantLight.Targets.Add(lightRoot);
+            //_spotLight.CoordinateSpace = lightRoot;
+            //_spotLight.Targets.Add(lightRoot);
+
+            //amblighting.Targets.Add(lightRoot);
             _pointLight.CoordinateSpace = lightRoot;
             _pointLight.Targets.Add(lightRoot);
         }
@@ -56,7 +65,11 @@ namespace CompositionHelloWorld
             if(_pointLight!=null)
             {
                 var offset = e.GetCurrentPoint(sample_img).Position.ToVector2();
-                _pointLight.Offset = new Vector3(offset.X, offset.Y, 75);
+                //Vector3 position = new Vector3((float)sample_img.ActualWidth / 2, (float)sample_img.ActualHeight / 2, 200);
+                //Vector3 lookAt = new Vector3((float)sample_img.ActualWidth - offset.X, (float)sample_img.ActualHeight - offset.Y, 0);
+                _pointLight.Offset = new Vector3(offset.X, offset.Y, 200);
+                //_distantLight.Direction= Vector3.Normalize(lookAt - position);
+                //_spotLight.Offset = new Vector3(offset.X, offset.Y, 200);
             }
         }
 

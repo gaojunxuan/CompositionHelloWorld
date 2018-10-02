@@ -18,5 +18,6 @@
         <Button x:Name="nav2_Btn" Content="Drop shadow" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Center" Click="nav2_Btn_Click"/>
         <Button x:Name="nav3_Btn" Content="Point light" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Center" Click="nav3_Btn_Click"/>
         <Button x:Name="nav4_Btn" Content="Ani1" HorizontalAlignment="Center" Margin="0,504,0,0" VerticalAlignment="Center" Click="nav4_Btn_Click"/>
+        <Button x:Name="nav5_Btn" Content="InteractionTracker" HorizontalAlignment="Center" Margin="0,604,0,0" VerticalAlignment="Center" Click="nav5_Btn_Click"/>
     </Grid>
 </Page>

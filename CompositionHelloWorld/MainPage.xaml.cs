@@ -107,5 +107,10 @@ namespace CompositionHelloWorld
                 blurVisual.Size = e.NewSize.ToVector2();
             }
         }
+
+        private void nav5_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InteractionTrackerPage2));
+        }
     }
 }
